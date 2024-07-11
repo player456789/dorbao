@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Mug - Handmade Craft Store</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="py-3 navbar navbar-expand-lg fixed-top auto-hiding-navbar smooth-scroll">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="asset/logo.jpg" class="logo" alt="Logo" /> CraftStore
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <!-- Product Detail section -->
+    <section id="product-detail" class="animate-on-scroll" data-aos="fade-up">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="asset/product2.jpg" class="img-fluid" alt="Personalized Mug">
+                </div>
+                <div class="col-md-6">
+                    <h1>tufting</h1>
+                    <p>You can choose the pattern you want and we'll project it for you and also choose your favorite color scheme and we'll trim it for you when you're done.</p>
+                    <p><strong>Price:</strong> $50.00</p>
+                    <div style="text-align: center;">
+                        <button type="button" class="btn btn-dark btn-large" onclick="window.history.back()">Go Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Product Detail section -->
+
+    <script>
+        $(document).ready(function () {
+            // Animate on scroll
+            AOS.init();
+        });
+    </script>
+</body>
+</html>

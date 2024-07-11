@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Handmade Craft Store</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</head>
+<style>
+    body {
+        padding-top: 70px;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+    }
+</style>
+<body>
+    <!-- Navbar -->
+    <nav class="py-3 navbar navbar-expand-lg fixed-top auto-hiding-navbar smooth-scroll">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="asset/logo.jpg" class="logo" alt="Logo" /> Dorbao
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">
+                            <img src="D:\html\新建文件夹\asset\vector-shopping-cart-icon.jpg" alt="Cart" style="width: 20px;">
+                            <span id="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <!-- Cart section -->
+    <section id="cart" class="animate-on-scroll" data-aos="fade-up">
+        <div class="container">
+            <h1>Your Shopping Cart</h1>
+            <div id="cart-items"></div>
+            <div style="text-align: center;">
+                <button type="button" class="btn btn-dark" onclick="window.location.href='index.html'">Continue Shopping</button>
+            </div>
+        </div>
+    </section>
+    <!-- End Cart section -->
+
+    <script>
+        $(document).ready(function () {
+            // Animate on scroll
+            AOS.init();
+
+            // Display cart items
+            displayCartItems();
+
+            updateCartCount();
+        });
+
+        function displayCartItems() {
+            let cart = JSON.parse(localStorage.getItem('cart'));
+            let cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                let total = 0;
+                cart.forEach((item, index) => {
+                    let itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    itemElement.innerHTML = `<p>${item.name} - $${item.price} <button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})">Remove</button></p>`;
+                    cartItemsContainer.appendChild(itemElement);
+                    total += item.price;
+                });
+
+                let totalElement = document.createElement('div');
+                totalElement.className = 'cart-total';
+                totalElement.innerHTML = `<p>Total: $${total}</p>`;
+                cartItemsContainer.appendChild(totalElement);
+            }
+        }
+
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem('cart'));
+            document.getElementById('cart-count').innerText = cart.length;
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart'));
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCartItems();
+            updateCartCount();
+        }
+    </script>
+</body>
+</html>
