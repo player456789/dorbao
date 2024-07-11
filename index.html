@@ -2,219 +2,172 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Handmade Craft Store</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <title>Login Form in HTML and CSS | Dimpas</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('asset/road-2508733.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper {
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: #fff;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.wrapper .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+    accent-color: #fff;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.wrapper .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+</style>
 <body>
-    <!-- Navbar -->
-    <nav class="py-3 navbar navbar-expand-lg fixed-top auto-hiding-navbar smooth-scroll">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="asset/logo.jpg" class="logo" alt="Logo" /> Dorbao
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#hero">Home</a>
-                            <a class="dropdown-item" href="#about-us">About Us</a>
-                            <a class="dropdown-item" href="#products">Products</a>
-                            <a class="dropdown-item" href="#contact">Contact</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cart.html">
-                            <img src="asset\vector-shopping-cart-icon.jpg" alt="Cart" style="width: 20px;">
-                            <span id="cart-count">0</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- End Navbar -->
+    <div class="wrapper">
+        <form onsubmit="login(event)">
+            <h1>Login</h1>
 
-    <!-- Hero section -->
-    <section id="hero">
-        <div id="heroCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="D:\html\新建文件夹\asset\1.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1>Handmade Crafts</h1>
-                        <p>Discover our unique and beautiful handmade crafts. Each item is crafted with love and care to bring joy to your home.</p>
-                        <button type="button" class="btn btn-dark btn-large" onclick="window.location.href='learn-more.html'">Learn more</button>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="D:\html\新建文件夹\asset\4.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1>Crafted with Love</h1>
-                        <p>Explore our collection of unique handmade items. Each piece tells a story.</p>
-                        <button type="button" class="btn btn-dark btn-large" onclick="window.location.href='learn-more.html'">Learn more</button>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="D:\html\新建文件夹\asset\2.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1>Personalized Gifts</h1>
-                        <p>Find the perfect personalized gift for your loved ones.</p>
-                        <button type="button" class="btn btn-dark btn-large" onclick="window.location.href='learn-more.html'">Learn more</button>
-                    </div>
-                </div>
+            <div class="input-box">
+                <input type="text" id="username" placeholder="Username" required>
+                <i class='bx bxs-user-circle'></i>
             </div>
-            <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </section>
-    <!-- End Hero section -->
 
-    <!-- About us section -->
-    <section id="about-us" class="animate-on-scroll" data-aos="fade-up">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <img src="D:\html\新建文件夹\asset\about us.jpg" class="img-fluid" alt="About Us">
-                </div>
-                <div class="col-md-6 text-col">
-                    <h1>About Us</h1>
-                    <p>Welcome to Dorbao! We specialize in creating handmade crafts that add a personal touch to your home. Our story began with a passion for creativity and a desire to share our love for crafting with others.</p>
-                    <p>Each item in our store is carefully crafted by hand, ensuring quality and uniqueness. We believe that handmade crafts bring a special charm and warmth that mass-produced items simply can't match.</p>
-                    <div style="text-align: center;">
-                        <button type="button" class="btn btn-dark btn-large" onclick="window.location.href='learn-more.html'">Let's meet</button>
-                    </div>
-                </div>
+            <div class="input-box">
+                <input type="password" id="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
             </div>
-        </div>
-    </section>
-    <!-- End About us section -->
 
-    <!-- Products section -->
-    <section id="products" class="animate-on-scroll" data-aos="fade-up">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col">
-                    <h1>Our Products</h1>
-                    <p>Explore our collection of handmade crafts. From home decor to personalized gifts, we have something for everyone.</p>
-                </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot password?</a>
             </div>
-            <div class="row align-items-center">
-                <div class="col-md-8 d-flex justify-content-center">
-                    <div class="card mb-3">
-                        <img src="D:\html\新建文件夹\asset\product1.jpg" class="card-img-top" alt="Product 1">
-                        <div class="card-body">
-                            <h5 class="card-title">bearbrick</h5>
-                            <p class="card-text">You can use paints to color in the bearbrick and can choose your own favorite color and take it home!</p>
-                            <button type="button" class="btn btn-primary" onclick="addToCart('bearbrick', 100)">Add to Cart</button>
-                            <button type="button" class="btn btn-dark" onclick="window.location.href='product1.html'">View Product</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8 d-flex justify-content-center">
-                    <div class="card mb-3">
-                        <img src="asset/product2.jpg" class="card-img-top" alt="Product 2">
-                        <div class="card-body">
-                            <h5 class="card-title">tufting</h5>
-                            <p class="card-text">You can choose the pattern you want and we'll project it for you and also choose your favorite color scheme and we'll trim it for you when you're done.</p>
-                            <button type="button" class="btn btn-primary" onclick="addToCart('tufting', 50)">Add to Cart</button>
-                            <button type="button" class="btn btn-dark" onclick="window.location.href='product2.html'">View Product</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8 d-flex justify-content-center">
-                    <div class="card mb-3">
-                        <img src="asset/product3.jpg" class="card-img-top" alt="Product 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Bracelet DIY</h5>
-                            <p class="card-text">You can choose your favorite materials to make in the store, and if you don't know how to make it we will help you!</p>
-                            <button type="button" class="btn btn-primary" onclick="addToCart('Bracelet DIY', 10)">Add to Cart</button>
-                            <button type="button" class="btn btn-dark" onclick="window.location.href='product3.html'">View Product</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Products section -->
+            <button type="submit" class="btn">Login</button>
 
-    <!-- Contact section -->
-    <section id="contact" class="animate-on-scroll" data-aos="fade-up">
-        <div class="container">
-            <h1>Contact Us</h1>
-            <p>If you have any questions or would like to place a custom order, please feel free to contact us. We look forward to hearing from you!</p>
-            <p>Email: info@craftstore.com | Phone: +123 456 7890</p>
-            <a href="https://www.facebook.com/dorbao" target="_blank">
-                <img src="D:\html\新建文件夹\asset\facebook icon.jpg" alt="Facebook" style="width: 40px;">
-            </a>
-        </div>
-    </section>
-    <!-- End Contact section -->
+            <div class="register-link">
+                <p>Don't have an account? <a href="#">Register</a></p>
+            </div>
+        </form>
+    </div>
 
     <script>
-        $(document).ready(function () {
-            // Smooth scrolling for nav links
-            $('a.nav-link').on('click', function (e) {
-                if (this.hash !== '') {
-                    e.preventDefault();
-
-                    const hash = this.hash;
-
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    }, 800, function () {
-                        window.location.hash = hash;
-                    });
-                }
-            });
-
-            // Animate on scroll
-            AOS.init();
-
-            // Initialize cart
-            if (!localStorage.getItem('cart')) {
-                localStorage.setItem('cart', JSON.stringify([]));
-            }
-
-            updateCartCount();
-        });
-
-        function addToCart(productName, productPrice) {
-            let cart = JSON.parse(localStorage.getItem('cart'));
-            cart.push({ name: productName, price: productPrice });
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartCount();
-            alert(productName + ' has been added to your cart.');
-        }
-
-        function updateCartCount() {
-            let cart = JSON.parse(localStorage.getItem('cart'));
-            document.getElementById('cart-count').innerText = cart.length;
-        }
-        function checkLogin() {
-            const loggedIn = sessionStorage.getItem('loggedIn');
-            if (!loggedIn) {
-                window.location.href = 'login.html';
+        function login(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === '123' && password === '123') {
+                sessionStorage.setItem('loggedIn', 'true');
+                window.location.href = 'index.html';
+            } else {
+                alert('Invalid username or password');
             }
         }
-        checkLogin();
     </script>
 </body>
 </html>
